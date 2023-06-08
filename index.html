@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>P.D Action Figures</title>
+</head>
+<body>
+
+    <header>
+        <a class="logo"><img src="logo.png" height="100px"></i>P.D Action Figures</a>
+
+        <ul class="navegação">
+            
+        </ul>
+
+        <div class="header-icons">
+            <a href="payment.html"><i class='bx bx-cart'></i></a>
+            
+        </div>
+    </header>
+
+    <section class="home">
+        <div class="home-img">
+            <img src="ashe.png" class="one">
+        </div>
+
+        <div class="home-text">
+
+            <h1>Action <br> Figure</h1>
+            <h5>League Of Legends Ashe</h5>
+            <h3>$140.00</h3>
+            <a href="payment.html" class="btn">Shop Now</a>
+            
+        </div>
+    </section>
+
+
+    <div class="main">
+        <div class="row">
+            <li><img src="ashe.png" onclick="slider('product1.png')"></li>
+        </div>
+    </div>
+  
+    <script>
+        function slider (anything){
+            document.querySelector ('.one') .src = anything;
+        };
+
+       let navbar = document.querySelector ('.navbar');
+
+    </script>
+</body>
+</html>
