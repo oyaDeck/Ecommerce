@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Checkout Formulary</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        fieldset {
+            border: 0;
+            padding: 0;
+        }
+
+        fieldset > div {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        label span {
+            color: red;
+        }
+
+        input, select {
+            border: 2px solid grey;
+            border-radius: 4px;
+            padding: 10px;
+            width: 200px;
+        }
+
+        select {
+            background: transparent;
+            box-shadow: none;
+            color: #666;
+            width: 100%;
+        }
+
+        .select-wrapper {
+            position: relative;
+            width: 222px;
+        }
+
+        .select-wrapper::after {
+            content: '< >';
+            color: #666;
+            font-size: 18px;
+            top: 8px;
+            right: 0;
+            transform: rotate(90deg);
+            position: absolute;
+            z-index: -1;
+        }
+
+        .symple-input input {
+            width: 439px;
+        }
+
+        .input {
+            display: flex;
+        }
+
+        .input > div {
+            margin-right: 15px;
+        }
+
+        input:valid {
+            border: 2px solid green;
+        }
+
+        input:invalid {
+            border: 2px solid red;
+        }
+
+        .radio input {
+            float: left;
+            margin-right: 10px;
+            width: auto;
+        }
+
+        button {
+            background: green;
+            border: 0;
+            color: white;
+            width: 224px;
+            padding: 10px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        <fieldset>
+            <h1>Cart</h1>
+    
+    <div class="product">
+        <h2>League Of Legends - Ashe Action Figure</h2>
+        <a class="navbar-brand"><img src="ashe.png" height="300px"/></a>
+        <p>Price: 140.00</p>
+        <label for="quantity1">Quantity:</label>
+        <input type="number" id="quantity1" min="0" value="0" onchange="calculateTotal()">
+    </div>
+    
+    
+    <script src="paypal.js"></script>
+            <h2>Shipping Address</h2>
+            <div class="input">
+                <div>
+                    <label for="name">Name: <span>*</span></label>
+                    <input type="text" name="name" id="name" required>
+                </div>
+                <div>
+                    <label for="lastname">Last Name: <span>*</span></label>
+                    <input type="text" name="lastname" id="lastname" required>
+                </div>
+            </div>
+            <div class="input">
+                <div>
+                    <label for="email">Email: <span>*</span></label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div>
+                    <label for="phone">Phone Number: <span>*</span></label>
+                    <input type="tel" name="phone" id="phone" required>
+                </div>
+            </div>
+            <div class="symple-input">
+                <div>
+                    <label for="address">Address: <span>*</span></label>
+                    <input type="text" name="address" id="address" required>
+                </div>
+            </div>
+            <div class="input">
+                <div>
+                    <label for="zip">ZIP Code: <span>*</span></label>
+                    <input type="text" name="zip" id="zip" required>
+                </div>
+                <div>
+                    <label for="country">Country: <span>*</span></label>
+                    <input type="text" name="country" id="country" required>
+                </div>
+            </div>
+        </div class="total">
+        <h2>Total: <span id="total">$ 0.00</span></h2>
+    </div>
+    
+    <div id="paypal-button-container"></div>
+        <script src="https://www.paypal.com/sdk/js?client-id=AfkKBFkaZp0QojOPFmZIxwRtHuvqWyE3_4CkO4RtFZn8i-vUqpQNYs4OjzB57j-xpk8MHrACGmMGtCpY&locale=en_US"></script>
+    <script>
+        paypal.Buttons({
+            createOrder: function (data, actions){
+                return actions.order.create({
+                                    purchase_units: [{
+                                            amount: {
+                                                value: price1
+                                            }
+                                        }]
+                });
+             } 
+        }).render('#paypal-button-container')
+    </script>
+    <script src="paypal.js"></script>
+        </fieldset>
+    </form>
+</body>
+</html>
